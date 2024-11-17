@@ -1,66 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Domain-Driven Design (DDD) in Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project implements **Domain-Driven Design (DDD)** principles in a Laravel application. DDD is a software design approach that focuses on organizing code around the **core business domains**, ensuring that the code structure reflects the real-world business logic and requirements. 
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## **What is DDD?**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+DDD is a development methodology that emphasizes:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Domain Logic First**: Prioritizing the core business domain over technical concerns.
+- **Decoupling of Code**: Separating technical layers (e.g., database, APIs) from business logic.
+- **Clear Boundaries**: Defining distinct domain boundaries to ensure modularity and scalability.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## **Folder Structure**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The project is organized into key layers that align with DDD principles:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```plaintext
+app/
+├── Domains/                # Core business domains
+│   ├── User/               # Domain-specific logic for "User"
+│   │   ├── Entities/       # Core entities (e.g., User model abstraction)
+│   │   ├── Repositories/   # Interfaces for data access
+│   │   ├── Services/       # Business logic for the domain
+│   │   ├── ValueObjects/   # Objects representing domain-specific values
+│   │   └── Exceptions/     # Custom exceptions for the domain
+├── Application/            # Coordinates operations between domains
+│   ├── Commands/           # Write operations (create/update/delete)
+│   ├── Queries/            # Read operations (fetch data)
+│   └── DTOs/               # Data Transfer Objects for communication
+├── Infrastructure/         # Technical concerns like database access
+│   ├── Persistence/        # Eloquent models and database repositories
+│   ├── Messaging/          # Events and messaging systems
+│   └── ThirdParty/         # Integrations with external APIs or services
+├── Http/                   # Controllers and HTTP requests
+│   ├── Controllers/        # Routes to handle HTTP traffic
+│   └── Requests/           # Request validation
+└── Providers/              # Service providers for dependency injection
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### **Explanation of the README:**
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Introduction to DDD**: The file explains what Domain-Driven Design (DDD) is and its significance in building scalable and business-aligned applications.
+- **Project Structure**: The README outlines the folder structure of the project, breaking down each layer and its purpose (e.g., `Domains`, `Application`, `Infrastructure`).
+- **Components**: The main components of DDD (entities, repositories, services, value objects, etc.) are explained.
+- **API Endpoints**: Examples of API endpoints to interact with the system (such as getting and creating users).
+- **Future Improvements**: Possible future improvements such as integrating CQRS or event sourcing.
