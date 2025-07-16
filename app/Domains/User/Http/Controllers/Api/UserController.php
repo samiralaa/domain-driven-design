@@ -1,15 +1,14 @@
 <?php
+
 namespace App\Domains\User\Http\Controllers\Api;
 
-use App\Domains\User\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class UserController
+class UserController extends Controller
 {
-    // This controller will handle user-related API requests.
     public function index()
     {
-        return response()->json([
-            'users' => User::all()
-        ]);
+        //
     }
 }

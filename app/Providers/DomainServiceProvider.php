@@ -13,6 +13,7 @@ class DomainServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->bind(App\Domains\User\Repositories\UserRepositoryInterface::class, App\Domains\User\Repositories\EloquentUserRepository::class);
         // $this->app->bind(UserRepositoryInterface::class, EloquentUserRepository::class);
 
     }
@@ -22,6 +23,7 @@ class DomainServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+           $this->loadMigrationsFrom(base_path('app/Domains/User/Database/Migrations'));
+
     }
 }
