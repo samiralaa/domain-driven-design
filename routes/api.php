@@ -1,15 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\User\Auth\UserController;
-use Illuminate\Http\Request;
+
+
 use Illuminate\Support\Facades\Route;
+use App\Domains\User\Http\Controllers\Api\UserController;
 
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
-
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{id}', [UserController::class, 'show']);
-Route::post('/users', [UserController::class, 'store']);
+Route::prefix('user')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    // You can add more user-related routes here.
+});
