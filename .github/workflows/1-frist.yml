@@ -3,12 +3,13 @@ name: PHP Composer
 on:
   workflow_dispatch:
 
-
-
 jobs:
+  validate-composer:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Validate Composer Files
-      run: echo "Validating composer files..."
+      - uses: actions/checkout@v4
+
+      - name: Validate Composer Files
+        run: |
+          composer validate
