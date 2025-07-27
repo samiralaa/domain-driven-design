@@ -1,1 +1,14 @@
 name: CI
+
+on:
+
+   workflows_dispatch:
+jobs:
+  push_frist_commit:
+  steps:
+    - name: Checkout Code
+      run: echo "Checking out code..."
+    - name: Run Tests
+      run: echo "Running tests..."
+    - name: Build Project
+      run: echo "Building project..."
