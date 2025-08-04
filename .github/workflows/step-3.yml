@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo  test test test "hello"
+        run: echo  test test tes  صثثt "hello"
