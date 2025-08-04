@@ -1,6 +1,8 @@
 name: Say Hello
 
-on: [ push , pull_request ]
+on:
+  push:
+  pull_request:
 
 jobs:
   say-hello:
