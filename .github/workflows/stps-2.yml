@@ -1,0 +1,11 @@
+name: Say Hello
+
+on:
+  workflow_dispatch:  # 👈 Enables manual trigger
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo "hello"
