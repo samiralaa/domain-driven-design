@@ -4,8 +4,7 @@ on:
   workflow_dispatch 
 jobs:
   prinr-Hello
-  build:
     runs-on: ubuntu-latest
     steps:
     - name: print 
-      run:echo "test"
+      run:  echo "test"
